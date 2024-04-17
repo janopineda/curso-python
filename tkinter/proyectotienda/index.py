@@ -1,6 +1,6 @@
 from tkinter import *
 import os
-import cv2
+import cv2  
 from time import sleep
 class tienda:
     def __init__(self):
@@ -43,9 +43,7 @@ class tienda:
         x=1
         
         columnas_max = 1
-        print(datos1[0][3])
-        print(len(datos1))
-        
+       
         
         contar = len(datos1)
         
