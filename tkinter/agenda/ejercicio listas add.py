@@ -1,6 +1,5 @@
 from tkinter import *
 
-from numpy import append
 class aggr:
     def __init__(self):
         self.Nombres=["Alex","Miguel"]
@@ -18,13 +17,21 @@ class aggr:
         varTel=str(self.ponerTel.get())
         self.tel.append(varTel)
         
-        print(self.Nombres)
-        print(self.direccion)
-        print(self.tel)
+        ventana=Toplevel()
+
+        contar=len(self.Nombres)
+
+        for x in range(contar):
+            lbNombre=Label(ventana, text=f"Nombre : {self.Nombres[x]}")
+            lbNombre.pack()
+            lbdir=Label(ventana, text=f"Dirección : {self.direccion[x]}")
+            lbdir.pack()
+            lbtel=Label(ventana,text=f"Telefono : {self.tel[x]} \n")
+            lbtel.pack()
     
     def ventana(self):
         root=Tk()
-        root.geometry("500x600")
+        root.geometry("200x150")
         
         lbNombre=Label(root,text="Nombre")
         lbNombre.pack()
@@ -46,8 +53,7 @@ class aggr:
         
         Enviar=Button(root,text="Agregar",command=self.agregar)
         Enviar.pack()
-        
-        contar=len()
+
         
         root.mainloop()
         
