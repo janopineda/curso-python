@@ -1,6 +1,7 @@
 from tkinter import *
 import os
 import cv2  
+import keyboard
 from time import sleep
 class tienda:
     def __init__(self):
@@ -15,19 +16,19 @@ class tienda:
         
         
     def programa1(self):
-        ven=Toplevel()
-        archivo=cv2.VideoCapture('video.mp4')
+        ven = Toplevel()
+        lb = Label(ven, text="Favor de cerrar \n la ventana")
+        lb.pack()
+        archivo = cv2.VideoCapture(os.path.join(self.rutaVideo, 'gatito.mp4'))
         while archivo.isOpened():
             ret, im = archivo.read()
             if ret == False:
                 break
-            cv2.imshow('imagen',im)
-            if cv2.waitKey(1) ==27:
+            cv2.imshow('imagen', im)
+            if cv2.waitKey(1) == 27 or keyboard.is_pressed('q'):
                 break
             sleep(1/30)
-        
-        lb=Label(ven,text="hola")
-        lb.pack()
+
         
     def programa2(self):
         ven=Toplevel()
