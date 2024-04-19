@@ -1,7 +1,9 @@
 from tkinter import *
+from tkinter import messagebox as MessageBox
 import os
 import cv2  
 import keyboard
+
 from time import sleep
 class tienda:
     def __init__(self):
@@ -16,7 +18,8 @@ class tienda:
         
         
     def programa1(self):
-        ven = Toplevel()
+        MessageBox.showinfo("Importante", "Para salir de la ventana \naprieta le botón q para poder cerrar\nla ventana")
+        ven = Toplevel(self.raiz)
         lb = Label(ven, text="Favor de cerrar \n la ventana")
         lb.pack()
         archivo = cv2.VideoCapture(os.path.join(self.rutaVideo, 'gatito.mp4'))
@@ -35,7 +38,7 @@ class tienda:
         lb=Label(ven,text="hola")
         lb.pack()
     def win (self):
-        raiz=Tk()
+        self.raiz=Tk()
         
         datos1 = [ 
                   ["id01","Hola brother","img1","foto1.png",self.programa1], 
@@ -53,7 +56,7 @@ class tienda:
         
         
         for f in range(contar):
-            Marco=LabelFrame(raiz,bg="#7AFACA")
+            Marco=LabelFrame(self.raiz,bg="#7AFACA")
             Marco.grid(row=f // 3 ,column=f % 3 , padx=10, pady=10)
         
             datos1[f][2]=PhotoImage( file=os.path.join(self.rutaImg,datos1[f][3]) )
@@ -69,7 +72,7 @@ class tienda:
             boton.config(relief=SUNKEN, bd=0)
             boton.pack(fill=BOTH)
             
-        raiz.mainloop()
+        self.raiz.mainloop()
 
     def new_method(self, raiz):
         return raiz
