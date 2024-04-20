@@ -38,18 +38,19 @@ class tienda:
         ven=Toplevel()
         lb=Label(ven,text="hola")
         lb.pack()
+
     def win (self):
         self.raiz=Tk()
-        
+        self.raiz.geometry('400x600')
+        self.raiz.configure(bg="black")
+
+
         datos1 = [ 
                   ["id01","Hola brother","img1","foto1.png",self.programa1], 
                   ["id02","que onda","img2","foto1.png",self.programa2] 
                   ]
         x=1
-        
-        columnas_max = 1
-       
-        
+
         contar = len(datos1)
         
         #xscrollbar = Scrollbar(self.new_method(raiz), orient=VERTICAL)
@@ -57,7 +58,7 @@ class tienda:
         
         
         for f in range(contar):
-            Marco=LabelFrame(self.raiz,bg="#7AFACA")
+            Marco=LabelFrame(self.raiz,bg="#7AFACA" ) 
             Marco.grid(row=f // 3 ,column=f % 3 , padx=10, pady=10)
         
             datos1[f][2]=PhotoImage( file=os.path.join(self.rutaImg,datos1[f][3]) )
