@@ -3,6 +3,7 @@ from tkinter import messagebox as MessageBox
 import os
 import cv2  
 import keyboard
+import mouse
 
 from time import sleep
 class tienda:
@@ -18,9 +19,8 @@ class tienda:
         
         
     def programa1(self):
-        MessageBox.showinfo("Importante", "Para salir de la ventana \naprieta le botón q para poder cerrar\nla ventana")
         ven = Toplevel(self.raiz)
-        lb = Label(ven, text="Favor de cerrar \n la ventana")
+        lb = Label(ven, text="Aprende la palabra para el examen \n :3")
         lb.pack()
         archivo = cv2.VideoCapture(os.path.join(self.rutaVideo, 'gatito.mp4'))
         while archivo.isOpened():
@@ -28,10 +28,11 @@ class tienda:
             if ret == False:
                 break
             cv2.imshow('imagen', im)
-            if cv2.waitKey(1) == 27 or keyboard.is_pressed('q'):
+            if cv2.waitKey(1) == 27 or keyboard.is_pressed('q') or mouse.is_pressed(button='left'):
                 break
             sleep(1/30)
-
+        archivo.release()
+        cv2.destroyAllWindows()
         
     def programa2(self):
         ven=Toplevel()
