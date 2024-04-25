@@ -1,4 +1,5 @@
 from tkinter import *
+
 class tienda_chucho:
     def __init__(self):
         self.precio=[]
