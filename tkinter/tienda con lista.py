@@ -36,17 +36,13 @@ class tienda_chucho:
         boton=Button(root,text="Lata de chiles",command=self.agregar)
         boton.pack()
         
-        self.lb=Label(root,text="yo")
+        self.lb=Label(root,text="Hola chevy")
 
         botoList=Button(root, text="lista",command=self.listPay)
         botoList.pack()
         
 
         root.mainloop()
-
-        
-
-        
 
 de=tienda_chucho()
 de.ventana()
