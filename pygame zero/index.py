@@ -1,37 +1,68 @@
 import pgzrun
+from random import randrange
 
 
+# tamaño de pagina
+WIDTH = 524
+HEIGHT = 307
 
-WIDTH = 800
-HEIGHT = 600
-bird_y = 200
-bird_y_speed = 0
 
-playing_area_width = 300
-playing_area_height = 388
+pelota=True
+randon=randrange(8)
+
+bg =Actor( 'fondo')
+
+jugadorRojo =Actor( 'jugadoruno')
+jugadorRojo.pos = 10, 307/2
+
+balon=Actor('balon')
+balon.pos= 524/2 , 307/2
+
+
 
 def draw():
-    # etc.
+    screen.clear()
+    bg.draw()
+    jugadorRojo.draw()
+    balon.draw()
 
-    pipe_width = 54
-    pipe_space_height = 100
-    pipe_space_y = 150
+def update():
+    global pelota
+    global randon
+    print(pelota)
 
-    screen.draw.filled_rect(
-        Rect(
-            (playing_area_width, 0),
-            (pipe_width, pipe_space_y)
-        ),
-        color=(94, 201, 72)
-    )
+    if pelota == True:
+        balon.x += 2
+        balon.y += randon
+    if pelota == False:
+        balon.x -= 2
+    """balon.left += 2"""
+    if balon.x > 523:
+        pelota = False
+        balon.x = 520
+    if balon.x < 0:
+        pelota = True
+        balon.x=10
 
-    screen.draw.filled_rect(
-        Rect(
-            (playing_area_width, pipe_space_y + pipe_space_height),
-            (pipe_width, playing_area_height - pipe_space_y - pipe_space_height)
-        ),
-        color=(94, 201, 72)
-    )
+    if keyboard.a: 
+        jugadorRojo.x -= 10
+    elif keyboard.d:
+        jugadorRojo.x += 10
+    elif keyboard.w:
+        jugadorRojo.y -= 10
+    elif keyboard.s:
+        jugadorRojo.y += 10
 
+    if jugadorRojo.x >523:
+        jugadorRojo.x = 523
+    if jugadorRojo.x <1:
+        jugadorRojo.x = 1
+    if jugadorRojo.y > 307:
+        jugadorRojo.y = 307
+    if jugadorRojo.y <1:
+        jugadorRojo.y = 1
+
+    #if jugadorRojo.colliderect(objeto):
+        
 
 pgzrun.go()

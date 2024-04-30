@@ -23,7 +23,7 @@ class tienda_chucho:
             publicArt=Label(vent,text=f" {self.articulo[x]} {self.precio[x]}")
             publicArt.pack()
             almacenDeSuma=almacenDeSuma+self.precio[x]
-        iva=almacenDeSuma*.16
+        iva=almacenDeSuma*1.16
         total=almacenDeSuma+iva
         
         publieza=Label(vent,text=f"Subtotal ${almacenDeSuma} \nIva ${round(iva, 2)} \n Total ${total}")
