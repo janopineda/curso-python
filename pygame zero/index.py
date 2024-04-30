@@ -1,5 +1,5 @@
 import pgzrun
-from random import randrange
+from random import randint
 
 
 # tamaño de pagina
@@ -8,7 +8,7 @@ HEIGHT = 307
 
 
 pelota=True
-randon=randrange(8)
+randon=randint(3,8)
 
 bg =Actor( 'fondo')
 
@@ -29,20 +29,32 @@ def draw():
 def update():
     global pelota
     global randon
-    print(pelota)
+
 
     if pelota == True:
         balon.x += 2
-        balon.y += randon
+        balon.y -= randon
     if pelota == False:
         balon.x -= 2
-    """balon.left += 2"""
+        balon.y -= randon
+        
     if balon.x > 523:
         pelota = False
         balon.x = 520
     if balon.x < 0:
         pelota = True
         balon.x=10
+
+    if balon.y < 0:
+        balon.y =10
+        randon = -abs(randon)
+
+    if balon.y > 307:
+        balon.y =307
+        randon = +abs(randon)
+
+
+    
 
     if keyboard.a: 
         jugadorRojo.x -= 10
@@ -62,7 +74,8 @@ def update():
     if jugadorRojo.y <1:
         jugadorRojo.y = 1
 
-    #if jugadorRojo.colliderect(objeto):
+    if jugadorRojo.colliderect(balon):
+        print("pasomecha")
         
 
 pgzrun.go()
