@@ -8,12 +8,13 @@ HEIGHT = 307
 
 
 pelota=True
-randon=randint(3,8)
+velocidad=2
+randon=randint(1,2)
 
 bg =Actor( 'fondo')
 
 jugadorRojo =Actor( 'jugadoruno')
-jugadorRojo.pos = 10, 307/2
+jugadorRojo.pos = 20, 307/2
 
 balon=Actor('balon')
 balon.pos= 524/2 , 307/2
@@ -29,13 +30,14 @@ def draw():
 def update():
     global pelota
     global randon
+    global velocidad
 
 
     if pelota == True:
-        balon.x += 2
+        balon.x += velocidad
         balon.y -= randon
     if pelota == False:
-        balon.x -= 2
+        balon.x -= velocidad
         balon.y -= randon
         
     if balon.x > 523:
@@ -54,16 +56,10 @@ def update():
         randon = +abs(randon)
 
 
-    
-
-    if keyboard.a: 
-        jugadorRojo.x -= 10
-    elif keyboard.d:
-        jugadorRojo.x += 10
-    elif keyboard.w:
-        jugadorRojo.y -= 10
+    if keyboard.w:
+        jugadorRojo.y -= 5
     elif keyboard.s:
-        jugadorRojo.y += 10
+        jugadorRojo.y += 5
 
     if jugadorRojo.x >523:
         jugadorRojo.x = 523
@@ -75,7 +71,9 @@ def update():
         jugadorRojo.y = 1
 
     if jugadorRojo.colliderect(balon):
-        print("pasomecha")
+        pelota=True
+        velocidad=velocidad+.8
+
         
 
 pgzrun.go()
