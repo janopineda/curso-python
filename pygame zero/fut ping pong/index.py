@@ -1,4 +1,5 @@
 import pgzrun
+from pgzhelper import *
 from random import randint
 
 
@@ -73,7 +74,5 @@ def update():
     if jugadorRojo.colliderect(balon):
         pelota=True
         velocidad=velocidad+.8
-
-        
 
 pgzrun.go()
