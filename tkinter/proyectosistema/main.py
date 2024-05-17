@@ -5,7 +5,7 @@ class sistema:
 
     def __init__(self):
         
-        Wlogin.win()
+        Wlogin.win(self)
         
 run=sistema()
 

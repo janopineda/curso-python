@@ -2,7 +2,7 @@ import var as conf
 from tkinter import *
 import os
 
-def win():
+def win(self):
     root=Tk()
     root.configure(bg="#58B22E")
     root.geometry(conf.tamanoVentana)
