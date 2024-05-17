@@ -8,6 +8,9 @@ def contar ():
         second.config(text=x)
         sleep(1)
         root.update()
+    x=0
+    second.config(text=x)
+    sleep(5)
 
 root=Tk()
 root.geometry("500x500")
