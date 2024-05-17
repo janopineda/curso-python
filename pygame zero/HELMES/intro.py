@@ -30,11 +30,15 @@ def draw():
     boton2.draw()
     boton3.draw()
 
+
 def update():
+    boton2.x += 2
+    print("hola")
     #fondo.animate()
-    pass
+    
 
 def on_mouse_down(pos):
+    global Translado
     if boton1.collidepoint(pos):
         fondo.image='fondo2'
         boton1.pos = -200, 0
@@ -44,5 +48,5 @@ def on_mouse_down(pos):
     else:
         print("hey man nooo")
 
-os.environ['SDL_VIDEO_CENTERED'] = '1' # centrar pantalla
+"""os.environ['SDL_VIDEO_CENTERED'] = '1' # centrar pantalla"""
 pgzrun.go()

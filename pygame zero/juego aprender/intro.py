@@ -40,7 +40,8 @@ def limite_chico():
         chico.y = 1
 
 def movimiento_chico():
-    #chico.image="chavo1"
+    chico.image="chavo1"
+    chico.image="chavo2"
     if keyboard.w:
         chico.y -= 2
         chico.animate()
