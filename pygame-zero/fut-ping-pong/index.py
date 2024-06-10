@@ -124,14 +124,14 @@ def update():
         if jugadorRojo.colliderect(balon):
             pelota=True
             sounds.rebote.play()
-            if velocidad < 14 :
+            if velocidad < 20 :
                 velocidad=velocidad+.4
                 print(velocidad)
 
         if jugadorVerde.colliderect(balon):
             pelota=False
             sounds.rebote.play()
-            if velocidad < 14 :
+            if velocidad < 20 :
                 velocidad=velocidad+.4
                 print(velocidad)
         if score1==5 or score2==5:
@@ -150,8 +150,6 @@ def update():
             pelota=False
             sounds.muerte.play()
     elif start==False:
-        score1=0
-        score2 =0
         botonStart.pos= 524/2 , 307/2
 
 def sonido():
@@ -160,9 +158,11 @@ def sonido():
     sonidoInicio=False
 
 def on_mouse_down(pos):
-    global start
+    global start, score1,score2
     if botonStart.collidepoint(pos):
         start=True
         botonStart.pos= -100 , -100
+        score1=0
+        score2 =0
 
 pgzrun.go()
