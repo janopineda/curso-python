@@ -23,7 +23,7 @@ QRcode = qrcode.QRCode(
 )
 
 # tomando url o texto
-url = 'https://www.geeksforgeeks.org/'
+url = 'https://forms.gle/Je2qSu58tRpJveW68'
 
 # añadiendo URL o texto al QRcode
 QRcode.add_data(url)
@@ -49,7 +49,7 @@ if not os.path.exists(rutaQR):
     os.makedirs(rutaQR)
 
 # guardar el código QR generado
-archivo_qr = os.path.join(rutaQR, "qrSys.png")
+archivo_qr = os.path.join(rutaQR, "qropen.png")
 QRimg.save(archivo_qr, scale=10)
 
 print('QR Listo!')
