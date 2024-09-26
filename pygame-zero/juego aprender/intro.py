@@ -3,17 +3,22 @@ import pgzrun
 from pgzhelper import *
 import sys
 from random import randint
+import os
 
+RUTA=os.path.dirname(r'c:\Users\Jano\Desktop\curso-python-master\pygame-zero\juego aprender\Barracuda.mp4')
+print("RUTA ES ",RUTA)
 
 
 # tamaño de pagina
 WIDTH = 800
 HEIGHT = 600
 
-chico =Actor( 'chavo1')
+chico =Actor('chavo1')
 chico.images = ['chavo1','chavo2','chavo3']
 chico.fps = 7
 
+chico2 =Actor('chavo1')
+chico2.pos = 400, 600/2
 music.play('rola2')
 
 fondo=Actor('fondo')
@@ -22,6 +27,7 @@ def draw():
     screen.clear()
     fondo.draw()
     chico.draw()
+    chico2.draw()
     
 
 def update():
@@ -59,6 +65,11 @@ def movimiento_chico():
         chico.x += 2
         chico.animate()
         chico.flip_x = False
+
+    if chico.colliderect(chico2):
+        print("hola")
+        os.system(r'start "" "c:\Users\Jano\Desktop\curso-python-master\pygame-zero\juego aprender\Barracuda.mp4"')
+
 
 
 
