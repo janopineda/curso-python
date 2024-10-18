@@ -2,30 +2,30 @@ import os
 from random import sample
 from gtts import gTTS
 from time import sleep
+import webbrowser
 
-variablerandom=sample(range(0,10),1)
-print(variablerandom)
-if variablerandom==[1]:
-    hablaMiChavo = 'Hola'
+while True:
+    hablaMiChavo = 'Hola, bienvenido a carwash Juan Scutia. selecciona tu servicio' #aqui es donde habla
     tts = gTTS(text=hablaMiChavo, lang='es')
     tts.save('hello.mp3')
     os.system('hello.mp3')
     sleep(8)
-if variablerandom==[2]:
-    hablaMiChavo = 'HI'
-    tts = gTTS(text=hablaMiChavo, lang='en')
+
+    print("Menu")
+    print("a) rap de la calle")
+    print("b) rap de la carcel")
+    print("c) rap de la anexo")
+    print("d) rap de la matrix")
+    print("e) rap de la goku")
+
+    hablaMiChavo = 'Este es el menú. a rap de calle. b rap de la carcel' #aqui es donde habla
+    tts = gTTS(text=hablaMiChavo, lang='es')
     tts.save('hello.mp3')
     os.system('hello.mp3')
     sleep(8)
-if variablerandom==[3]:
-    hablaMiChavo = 'bojour'
-    tts = gTTS(text=hablaMiChavo, lang='fr')
-    tts.save('hello.mp3')
-    os.system('hello.mp3')
-    sleep(8)
-if variablerandom==[4]:
-    hablaMiChavo = 'Nǐ hǎo'
-    tts = gTTS(text=hablaMiChavo, lang='zh-CN')
-    tts.save('hello.mp3')
-    os.system('hello.mp3')
-    sleep(8)
+
+    opciones=input("Dame la opción")
+
+    if opciones=="a":
+        print("este es de la calle")
+        webbrowser.open("http://google.com")

@@ -35,7 +35,6 @@ def update():
     limite_chico()
 
 def limite_chico():
-    
     if chico.x >800:
         chico.x = 800
     if chico.x <1:
@@ -48,9 +47,11 @@ def limite_chico():
 def movimiento_chico():
     chico.image="chavo1"
     chico.image="chavo2"
+    
     if keyboard.w:
         chico.y -= 2
         chico.animate()
+        
 
     elif keyboard.s:
         chico.y += 2
