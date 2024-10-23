@@ -10,8 +10,8 @@ while opciones != "s":
     print("a) Comprar")
     print("b) Promociones")
     print("c) cancelar boleto")
-    print("s) Salir\n")
-    seleccion=input("Selecione la opcion S/s : ")
+    print("s) Salir S/s\n")
+    seleccion=input("Selecione la opcion : ")
     opciones=seleccion.lower()
 
     # opcion de compra de boleto
