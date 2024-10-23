@@ -17,33 +17,37 @@ while opciones != "s":
     # opcion de compra de boleto
     if opciones == "a" or opciones == "comprar":
         print(f"el costo del boleto es de {COSTO}")
+        print("Filas disponibles")
         print(f"Fila A:   {y[0][0]}   {y[0][1]}   {y[0][2]}   {y[0][3]}   {y[0][4]}   {y[0][5]}   {y[0][6]}   {y[0][7]}") 
         print(f"Fila B:   {y[1][0]}   {y[1][1]}   {y[1][2]}   {y[1][3]}   {y[1][4]}   {y[1][5]}   {y[1][6]}   {y[1][7]}") 
         boletos=int(input("Cuantos boletos quieres : "))
-        selecfila=input("Dame la fila")
+        selecfila=input("Dame la fila : ")
 
         if selecfila.lower()=="a":
             for f in range(boletos):
                 silla=int(input(f"Dame la silla {f+1} :"))
-                sentarse=silla-1
-                if sentarse >8:
-                    print("no puedes seleccionar hasta el 8")
-                    break
-                else:
+                try:
+                    sentarse=silla-1
                     y[0][sentarse] = "X"
                     print(f"Fila A:   {y[0][0]}   {y[0][1]}   {y[0][2]}   {y[0][3]}   {y[0][4]}   {y[0][5]}   {y[0][6]}   {y[0][7]}") 
                     print(f"Fila B:   {y[1][0]}   {y[1][1]}   {y[1][2]}   {y[1][3]}   {y[1][4]}   {y[1][5]}   {y[1][6]}   {y[1][7]}") 
+                except:
+                    print("Esta silla no existe en la fila")
+                    print("Reinicia toda la compra")
+                    boletos=0 
+
         if selecfila.lower()=="b":
             for f in range(boletos):
                 silla=int(input(f"Dame la silla {f+1} :"))
-                sentarse=silla-1
-                if sentarse >8:
-                    print("no puedes seleccionar hasta el 8")
-                    break
-                else:
+                try:
+                    sentarse=silla-1
                     y[1][sentarse] = "X"
                     print(f"Fila A:   {y[0][0]}   {y[0][1]}   {y[0][2]}   {y[0][3]}   {y[0][4]}   {y[0][5]}   {y[0][6]}   {y[0][7]}") 
                     print(f"Fila B:   {y[1][0]}   {y[1][1]}   {y[1][2]}   {y[1][3]}   {y[1][4]}   {y[1][5]}   {y[1][6]}   {y[1][7]}") 
+                except:
+                    print("Esta silla no existe en la fila")
+                    print("Reinicia toda la compra")
+                    boletos=0 
 
         total=boletos*COSTO
         print(f"El total es: {total}")
