@@ -21,17 +21,31 @@ while opciones != "s":
         print(f"Fila B:   {y[1][0]}   {y[1][1]}   {y[1][2]}   {y[1][3]}   {y[1][4]}   {y[1][5]}   {y[1][6]}   {y[1][7]}") 
         boletos=int(input("Cuantos boletos quieres : "))
         selecfila=input("Dame la fila")
-        for asiento in range(0,9):
-            print(asiento)
+
         if selecfila.lower()=="a":
-            asiento=int(input("Dame el asiento"))
-            asientoselec=asiento-1
-            if asientoselec<7:
-                asientoselec
+            for f in range(boletos):
+                silla=int(input(f"Dame la silla {f+1} :"))
+                sentarse=silla-1
+                if sentarse >8:
+                    print("no puedes seleccionar hasta el 8")
+                    break
+                else:
+                    y[0][sentarse] = "X"
+                    print(f"Fila A:   {y[0][0]}   {y[0][1]}   {y[0][2]}   {y[0][3]}   {y[0][4]}   {y[0][5]}   {y[0][6]}   {y[0][7]}") 
+                    print(f"Fila B:   {y[1][0]}   {y[1][1]}   {y[1][2]}   {y[1][3]}   {y[1][4]}   {y[1][5]}   {y[1][6]}   {y[1][7]}") 
         if selecfila.lower()=="b":
-            asiento=int(input("Dame el asiento"))
+            for f in range(boletos):
+                silla=int(input(f"Dame la silla {f+1} :"))
+                sentarse=silla-1
+                if sentarse >8:
+                    print("no puedes seleccionar hasta el 8")
+                    break
+                else:
+                    y[1][sentarse] = "X"
+                    print(f"Fila A:   {y[0][0]}   {y[0][1]}   {y[0][2]}   {y[0][3]}   {y[0][4]}   {y[0][5]}   {y[0][6]}   {y[0][7]}") 
+                    print(f"Fila B:   {y[1][0]}   {y[1][1]}   {y[1][2]}   {y[1][3]}   {y[1][4]}   {y[1][5]}   {y[1][6]}   {y[1][7]}") 
+
         total=boletos*COSTO
-        print(f"El asiento es {selecasiento}")
         print(f"El total es: {total}")
 
     if opciones == "b" or opciones == "promociones":
