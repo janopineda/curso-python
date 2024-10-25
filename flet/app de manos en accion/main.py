@@ -15,7 +15,8 @@ conteiner=ft.Container(
         ft.Container(
             ft.TextField(
             hint_text="user",
-            read_only="ase"
+            read_only="Usuario",
+            width=200,
             ),
         ),
     ],
