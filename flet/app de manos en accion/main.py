@@ -14,10 +14,11 @@ conteiner=ft.Container(
         ),
         ft.Container(
             ft.TextField(
-            hint_text="user",
+            hint_text="Usuario",
             read_only="Usuario",
-            width=200,
+            width=250,
             ),
+            padding=ft.padding.only(50.0)
         ),
     ],
     alignment=ft.MainAxisAlignment.SPACE_EVENLY
