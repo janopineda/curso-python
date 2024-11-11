@@ -44,6 +44,7 @@ while opciones != "s":
             DatoTelefono=input("Dame el Telefon : ")
             Nombre.append(DatoNombre)
             Telefono.append(DatoTelefono)
+            total=boletos*COSTO
             selecfila=input("Dame la fila : ")
 
             if selecfila.lower()=="a":
@@ -116,13 +117,16 @@ while opciones != "s":
                     promo1=total*0.5
                     total=promo1
                     print(f"Vas a pagar ${total}")
+                    Compra.append(total)
                 if sele=="b":
                     print("Miercoles de %30")
                     promo2=total*0.3
                     total=promo2
+                    print(f"Vas a pagar ${total}")
+                    Compra.append(total)
+
             if submenu.lower() == "no":
                 Bolet.append(boletos)
-                total=boletos*COSTO
                 print(f"El total es: {total}")
 
     if opciones == "b" or opciones=="cancelar":
