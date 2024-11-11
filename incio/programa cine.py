@@ -116,19 +116,20 @@ while opciones != "s":
                     print("Has seleccionado tarjeta")
                     promo1=total*0.5
                     total=promo1
-                    print(f"Vas a pagar ${total}")
+                    print(f"Vas a pagar ${total} \n")
                     Compra.append(total)
                 if sele=="b":
                     print("Miercoles de %30")
                     promo2=total*0.3
                     total=promo2
-                    print(f"Vas a pagar ${total}")
+                    print(f"Vas a pagar ${total} \n")
                     Compra.append(total)
 
             if submenu.lower() == "no":
                 Bolet.append(boletos)
-                print(f"El total es: {total}")
-
+                print(f"El total es: {total} \n")
+    if opciones == "c" or opciones=="reporte":
+        print("reporte")
     if opciones == "b" or opciones=="cancelar":
         print("se a cancelado la compra ")
         total=0
