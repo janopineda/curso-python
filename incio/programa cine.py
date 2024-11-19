@@ -11,6 +11,7 @@ Bolet=[]
 contador=0
 contador1=0
 contador2=0
+disponibles=0
 y=list(range(1,9)) , list(range(1,9)) 
 
 while opciones != "s":
@@ -52,12 +53,13 @@ while opciones != "s":
                 for x in range( len(y[0]) ):
                     if y[0][x]=="X":
                         contador=contador+1
-
+                print(f"sillas ocupadas {contador}")
+                disponibles=len(y[0])-contador
                 if contador==8:
                     print("la fila A esta llena ")
                     input("Da enter para continuar")
-                    boletos=0
-                    Bolet.append(boletos)
+                elif contador<disponibles:
+                    print(f"No se puede pedir la cantidad\nsolo tienes disponible {disponibles}")
                 else:
                     for f in range(boletos):
                         silla=int(input(f"Dame la silla {f+1} :"))
@@ -83,12 +85,15 @@ while opciones != "s":
                 for x in range( len(y[0]) ):
                     if y[1][x]=="X":
                         contador=contador+1
-
+                disponibles=len(y[0])-contador
                 if contador==8:
                     print("la fila A esta llena ")
                     input("Da enter para continuar")
                     boletos=0
                     Bolet.append(boletos)
+
+                elif disponibles>contador:
+                    print(f"No se puede pedir la cantidad\nsolo tienes disponible {disponibles}")
                 else:
                     for f in range(boletos):
                         silla=int(input(f"Dame la silla {f+1} :"))
@@ -118,7 +123,7 @@ while opciones != "s":
                     total=promo1
                     print(f"Vas a pagar ${total} \n")
                     Compra.append(total)
-                if sele=="b":
+                elif sele=="b":
                     print("Miercoles de %30")
                     promo2=total*0.3
                     total=promo2
