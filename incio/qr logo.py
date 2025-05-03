@@ -23,7 +23,7 @@ QRcode = qrcode.QRCode(
 )
 
 # tomando url o texto
-url = 'https://forms.gle/2gYq3SMH46nST5By7'
+url = 'https://harkness.mx/wp-content/uploads/2021/08/Diseño-Esp.pdf'
 
 # añadiendo URL o texto al QRcode
 QRcode.add_data(url)
@@ -49,7 +49,7 @@ if not os.path.exists(rutaQR):
     os.makedirs(rutaQR)
 
 # guardar el código QR generado
-archivo_qr = os.path.join(rutaQR, "qrregistro.png")
+archivo_qr = os.path.join(rutaQR, "QRbrouchureEsp.png")
 QRimg.save(archivo_qr, scale=10)
 
 print('QR Listo!')

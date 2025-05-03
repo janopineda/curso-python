@@ -1,78 +1,57 @@
 """pip install git+https://github.com/QuirkyCort/pgzhelper"""
 import pgzrun
 from pgzhelper import *
-import sys
-from random import randint
-import os
-
-RUTA=os.path.dirname(r'c:\Users\Jano\Desktop\curso-python-master\pygame-zero\juego aprender\Barracuda.mp4')
-print("RUTA ES ",RUTA)
-
 
 # tamaño de pagina
 WIDTH = 800
 HEIGHT = 600
 
-chico =Actor('chavo1')
-chico.images = ['chavo1','chavo2','chavo3']
-chico.fps = 7
+casimiro = Actor('casimiro1')
+casimiro.images = ['casimiro1', 'casimiro2']
+casimiro.fps = 7  # Velocidad de animación (no se usa directamente aquí)
 
-chico2 =Actor('chavo1')
-chico2.pos = 400, 600/2
 music.play('rola2')
 
-fondo=Actor('fondo')
+fondo = Actor('fondo')
+
+speed = 50
+frame_counter = 0  # Contador de frames para controlar la animación
 
 def draw():
     screen.clear()
     fondo.draw()
-    chico.draw()
-    chico2.draw()
-    
+    casimiro.draw()
 
 def update():
+    limite_casimiro()
     movimiento_chico()
-    limite_chico()
 
-def limite_chico():
-    if chico.x >800:
-        chico.x = 800
-    if chico.x <1:
-        chico.x = 1
-    if chico.y > 600:
-        chico.y = 600   
-    if chico.y <1:
-        chico.y = 1
+def limite_casimiro():
+    if casimiro.x > 800:
+        casimiro.x = 800
+    if casimiro.x < 1:
+        casimiro.x = 1
+    if casimiro.y > 600:
+        casimiro.y = 600
+    if casimiro.y < 1:
+        casimiro.y = 1
 
 def movimiento_chico():
-    chico.image="chavo1"
-    chico.image="chavo2"
-    
-    if keyboard.w:
-        chico.y -= 2
-        chico.animate()
-        
+    global frame_counter
+    frame_counter += 1  
 
-    elif keyboard.s:
-        chico.y += 2
-        chico.animate()
-
-    elif keyboard.a:
-        chico.x -= 2
-        chico.animate()
-        chico.flip_x = True
+    if keyboard.a:
+        casimiro.x -= 2
+        casimiro.flip_x = True
+        if frame_counter % 10 == 0:  
+            casimiro.next_image()
 
     elif keyboard.d:
-        chico.x += 2
-        chico.animate()
-        chico.flip_x = False
+        casimiro.x += 2
+        casimiro.flip_x = False
+        if frame_counter % 10 == 0:  
+            casimiro.next_image()
 
-    if chico.colliderect(chico2):
-        print("hola")
-        os.system(r'start "" "c:\Users\Jano\Desktop\curso-python-master\pygame-zero\juego aprender\Barracuda.mp4"')
-
-
-
-
-    
 pgzrun.go()
+   
+  

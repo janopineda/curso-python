@@ -5,6 +5,7 @@ raiz.title("calculadora")
 
 resultado="Resultado"
 seleccion=StringVar()
+seleccion.set("RealizarSuma") 
 
 def pensar():
     opcion=seleccion.get()
@@ -12,8 +13,14 @@ def pensar():
     numDos=float(num2.get())
     if opcion=="RealizarSuma":
         sumar(numUno,numDos)
+    if opcion=="RealizarResta":
+        restar(numUno,numDos)
 
 def sumar(numUno,numDos):
+    resultado=numUno+numDos
+    return immprimir.config(text=str(resultado))
+
+def restar(numUno,numDos):
     resultado=numUno+numDos
     return immprimir.config(text=str(resultado))
     
@@ -28,12 +35,10 @@ mensaje2=Label(raiz,text="Núm 2").pack()
 num2=Entry(raiz)
 num2.pack()
 
-selecSumar=Radiobutton(raiz,text="Sumar",variable=seleccion,value="RealizarSuma")
-selecSumar.pack()
-selecResta=Radiobutton(raiz,text="Resta",variable=seleccion,value="RealizarResta")
-selecResta.pack()
-selecMulti=Radiobutton(raiz,text="Multiplicar",variable=seleccion,value="RealizarMulti")
-selecMulti.pack()
+Radiobutton(raiz,text="Sumar",variable=seleccion,value="RealizarSuma").pack()
+Radiobutton(raiz,text="Resta",variable=seleccion,value="RealizarResta").pack()
+Radiobutton(raiz,text="Multiplicar",variable=seleccion,value="RealizarMulti").pack()
+
 
 enviar=Button(raiz,text="Sumar",command=pensar).pack()
 immprimir=Label(raiz,text=resultado)
