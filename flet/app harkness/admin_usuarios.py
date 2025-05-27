@@ -120,6 +120,17 @@ def admin_usuarios_page(page: ft.Page):
     return ft.Container(
         content=ft.Column(
             [
+                ft.Row(
+                    [
+                        ft.IconButton(
+                            icon=ft.icons.CLOSE,
+                            icon_color="red",
+                            tooltip="Regresar",
+                            on_click=lambda _: page.go("/admin"),
+                        )
+                    ],
+                    alignment=ft.MainAxisAlignment.END,
+                ),
                 ft.Text("Alta/Baja Usuario", size=22, weight="bold"),
                 ft.Text("Dar de alta usuario", weight="bold"),
                 usuario_input,
@@ -151,7 +162,6 @@ def admin_usuarios_page(page: ft.Page):
                 ft.Divider(),
                 ft.Text("Usuarios actuales:", weight="bold"),
                 usuarios_view,
-                ft.ElevatedButton("Regresar", width=250, on_click=lambda _: page.go("/admin")),
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
