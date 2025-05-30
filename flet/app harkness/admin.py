@@ -49,3 +49,49 @@ def busqueda_page(page: ft.Page, texto_busqueda: str):
         alignment=ft.alignment.center,
         expand=True,
     )
+
+def admin_page(page: ft.Page):
+    return ft.Container(
+        content=ft.Column(
+            [
+                ft.Row(
+                    [
+                        ft.IconButton(
+                            icon=ft.icons.CLOSE,
+                            icon_color="red",
+                            tooltip="Regresar",
+                            on_click=lambda _: page.go("/home"),
+                        )
+                    ],
+                    alignment=ft.MainAxisAlignment.END,
+                ),
+                ft.Text("Panel de administración", size=25, weight="bold"),
+                ft.ElevatedButton(
+                    "Alta/Baja Usuario",
+                    icon=ft.icons.PERSON_ADD,
+                    bgcolor="#FF9800",
+                    color="white",
+                    on_click=lambda _: page.go("/admin/usuarios"),
+                ),
+                ft.ElevatedButton(
+                    "Alta/Baja Categoría",
+                    icon=ft.icons.CATEGORY,
+                    bgcolor="#4CAF50",
+                    color="white",
+                    on_click=lambda _: page.go("/admin/categorias"),
+                ),
+                ft.ElevatedButton(
+                    "Alta/Baja Enlaces",
+                    icon=ft.icons.LINK,
+                    bgcolor="#009688",
+                    color="white",
+                    on_click=lambda _: page.go("/admin/enlaces"),
+                ),
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            expand=True,
+        ),
+        alignment=ft.alignment.center,
+        expand=True,
+    )

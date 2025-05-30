@@ -6,7 +6,8 @@ from categoria import categoria_page
 from busqueda import busqueda_page
 from admin import admin_page
 from admin_usuarios import admin_usuarios_page
-from admin_categorias import admin_categorias_page  # <-- Importa la nueva sección
+from admin_categorias import admin_categorias_page
+from admin_enlaces import admin_enlaces_page  # <-- Importa la sección de enlaces
 
 def main(page: ft.Page):
     usuario_input = ft.TextField(
@@ -84,9 +85,12 @@ def main(page: ft.Page):
         elif event.route == "/admin/usuarios":
             page.views.clear()
             page.views.append(ft.View(route="/admin/usuarios", controls=[admin_usuarios_page(page)]))
-        elif event.route == "/admin/categorias":  # <-- Nueva ruta para categorías
+        elif event.route == "/admin/categorias":
             page.views.clear()
             page.views.append(ft.View(route="/admin/categorias", controls=[admin_categorias_page(page)]))
+        elif event.route == "/admin/enlaces":  # <-- Nueva ruta para enlaces
+            page.views.clear()
+            page.views.append(ft.View(route="/admin/enlaces", controls=[admin_enlaces_page(page)]))
         else:
             print("Navegando a la página de inicio de sesión")
             page.views.clear()
