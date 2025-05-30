@@ -3,9 +3,12 @@ from tkinter import messagebox
 from datetime import datetime
 
 class Biblioteca:
-    def __init__(self):
-        self.categoriaCiencias=[["hola","alex","alumno","fecha"],["hola2","alex2","fecha2"]]
-        self.categoriaLiteratura=[["hola3","alex3","alumno3","fecha3"],["hola4","alex4","alumno4","fecha4"]]  
+    def __init__(self):          #titulo, alumno, fecha
+        self.categoriaCiencias=[["Origen","None","None"]
+                                ,["hola2","alex2","fecha2"]]
+        
+        self.categoriaLiteratura=[["hola3","alex3","fecha3"],
+                                  ["hola4","alex4","fecha4"]]  
 
     def InicioMenu(self):
         ventana = Tk()
@@ -27,23 +30,19 @@ class Biblioteca:
         Label(ventana, text="Título:").pack()
         self.titulo_entry = Entry(ventana)
         self.titulo_entry.pack()
-        Label(ventana, text="Autor:").pack()
-        self.autor_entry = Entry(ventana)
-        self.autor_entry.pack()
         Button(ventana, text="Guardar", command=self.guardarLibro).pack()
  
 
     def guardarLibro(self):
         titulo = self.titulo_entry.get()
-        autor = self.autor_entry.get()
         fecha = "None"
         alumno= "None"
         categoria = self.categoria_var.get()
         if categoria == "Ciencias":
-            self.categoriaCiencias.append([titulo, autor, alumno, fecha])
+            self.categoriaCiencias.append([titulo, alumno, fecha])
             messagebox.showinfo("Éxito", "Libro registrado en Ciencias")
         elif categoria == "Literatura":
-            self.categoriaLiteratura.append([titulo, autor, alumno, fecha])
+            self.categoriaLiteratura.append([titulo, alumno, fecha])
             messagebox.showinfo("Éxito", "Libro registrado en Literatura")
 
 
