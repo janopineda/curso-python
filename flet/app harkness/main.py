@@ -7,7 +7,7 @@ from busqueda import busqueda_page
 from admin import admin_page
 from admin_usuarios import admin_usuarios_page
 from admin_categorias import admin_categorias_page
-from admin_enlaces import admin_enlaces_page  # <-- Importa la sección de enlaces
+from admin_enlaces import admin_enlaces_page  
 
 def main(page: ft.Page):
     usuario_input = ft.TextField(

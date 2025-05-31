@@ -5,7 +5,7 @@ from datetime import datetime
 class Biblioteca:
     def __init__(self):          #titulo, alumno, fecha
         self.categoriaCiencias=[["Origen","None","None"]
-                                ,["hola2","alex2","fecha2"]]
+                                ,["libro 2","None","None"]]
         
         self.categoriaLiteratura=[["hola3","alex3","fecha3"],
                                   ["hola4","alex4","fecha4"]] 

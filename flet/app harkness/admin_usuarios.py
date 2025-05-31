@@ -27,7 +27,8 @@ def admin_usuarios_page(page: ft.Page):
     borrar_usuario_input = ft.TextField(
         label="Usuario a borrar",
         width=250,
-        bgcolor="#686767"
+        bgcolor="#333333",
+        color="white"
     )
     mensaje_borrar = ft.Text("", color="red")
 
@@ -70,21 +71,24 @@ def admin_usuarios_page(page: ft.Page):
     usuario_input = ft.TextField(
         label="Usuario",
         width=250,
-        bgcolor="#686767"
+        bgcolor="#333333",
+        color="white"
     )
     contrasena_input = ft.TextField(
         label="Contraseña",
         width=250,
         password=True,
         can_reveal_password=True,
-        bgcolor="#686767"
+        bgcolor="#333333",
+        color="white"
     )
     rol_dropdown = ft.Dropdown(
         label="Rol",
         width=250,
         options=[ft.dropdown.Option("usuario"), ft.dropdown.Option("admin")],
         value="usuario",
-        bgcolor="#686767"
+        bgcolor="#333333",
+        color="white"
     )
     mensaje = ft.Text("", color="green")
 

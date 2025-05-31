@@ -39,7 +39,12 @@ def admin_categorias_page(page: ft.Page):
         )
 
     # Input para agregar categoría
-    categoria_input = ft.TextField(label="Nombre de la categoría", width=250, bgcolor="#2e2d2d")
+    categoria_input = ft.TextField(
+        label="Nombre de la categoría",
+        width=250,
+        bgcolor="#333333",
+        color="white"
+    )
     mensaje = ft.Text("", color="green")
 
     def actualizar_lista():
@@ -81,7 +86,12 @@ def admin_categorias_page(page: ft.Page):
         page.update()
 
     # Input para borrar categoría
-    borrar_categoria_input = ft.TextField(label="Categoría a borrar", width=250, bgcolor="#f0f0f0")
+    borrar_categoria_input = ft.TextField(
+        label="Categoría a borrar",
+        width=250,
+        bgcolor="#333333",
+        color="white"
+    )
     mensaje_borrar = ft.Text("", color="red")
 
     def borrar_categoria(e):
