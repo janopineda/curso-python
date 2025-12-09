@@ -28,10 +28,10 @@ while opciones != "s":
         contador2=0
         for x in range(len(y[0])):
             if y[0][x]=="X":
-                contador+1
+                contador+=1
         for x in range(len(y[1])):
             if y[1][x]=="X":
-                contador2+1
+                contador2+=1
         if contador==8 and contador2==8:
             print("la sala se lleno ")
             input("Presiona para continuar")

@@ -1,4 +1,5 @@
 import openpyxl
+import os
 
 nombres=["Juan","Pedro","Maria","Jose","Ana"]
 matematicas=[10,8,9,7,6]
@@ -23,6 +24,6 @@ for i in range(len(nombres)):
     Hoja["D"+str(i+2)]=ciencias[i]
     promedio=(matematicas[i]+espanol[i]+ciencias[i])/3
     Hoja["E"+str(i+2)]=promedio
-
-wb.save("calificaciones.xlsx")
-
+ubicacion=os.path.dirname
+print(f"{ubicacion}calificaciones.xlsx")
+#wb.save(f"{ubicacion}calificaciones.xlsx")
